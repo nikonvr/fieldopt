@@ -57,6 +57,53 @@ L'application est construite avec un ensemble d'outils Python modernes et perfor
 
 ---
 
+## 📈 Suivi d'Utilisation
+
+Pour savoir combien de fois l'application est utilisée, nous pouvons intégrer un service d'analyse simple et respectueux de la vie privée comme [GoatCounter](https://www.goatcounter.com/).
+
+### Étape 1 : Créer un compte GoatCounter
+
+1.  Allez sur [goatcounter.com](https://www.goatcounter.com/) et créez un compte gratuit.
+2.  Lors de l'inscription, vous devrez donner un **Code** à votre site. C'est ce code qui sera utilisé dans l'URL (par exemple, `mon-app-optique`). Votre URL GoatCounter sera `https://VOTRE-CODE.goatcounter.com`.
+
+### Étape 2 : Ajouter le script de suivi à Streamlit
+
+Modifiez votre fichier `streamlit_app.py` pour y ajouter le code de suivi. Il est préférable de l'ajouter à la fin du fichier, dans la section de l'interface principale.
+
+```python
+import streamlit as st
+import streamlit.components.v1 as components
+
+# ... (tout votre code d'application existant) ...
+
+# --- Ajout du compteur de visites ---
+st.sidebar.markdown("---")
+components.html(
+    """
+    <script data-goatcounter="[https://VOTRE-CODE.goatcounter.com/count](https://VOTRE-CODE.goatcounter.com/count)" 
+            async src="//gc.zgo.at/count.js"></script>
+    """,
+    height=0,
+)
+```
+
+**Important** : Remplacez `VOTRE-CODE` par le code que vous avez choisi lors de votre inscription sur GoatCounter.
+
+### Étape 3 : Afficher le compteur sur GitHub (Optionnel)
+
+Pour afficher un badge avec le nombre de visites directement sur cette page, vous pouvez ajouter l'image suivante.
+
+1.  Sur GoatCounter, allez dans *Settings* > *Public dashboard* et activez le tableau de bord public.
+2.  Ajoutez l'image suivante à votre `README.md`, en remplaçant `VOTRE-CODE` :
+
+```markdown
+<p align="center">
+  <img src="[https://VOTRE-CODE.goatcounter.com/counter.svg?path=/](https://VOTRE-CODE.goatcounter.com/counter.svg?path=/)" alt="Compteur de visites"/>
+</p>
+```
+
+---
+
 ## 🚀 Installation et Lancement Local
 
 Pour faire fonctionner ce projet sur votre machine locale, suivez ces étapes :
