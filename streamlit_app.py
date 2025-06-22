@@ -451,6 +451,16 @@ def get_excel_download(params, results):
 st.set_page_config(layout="wide", page_title="Simulateur Optique")
 st.title("Simulateur Optique Avancé")
 
+# Ajout du message d'introduction
+st.info(
+    """
+    **Auteur :** Fabien Lemarchand fabien.lemarchand@gmail.com
+
+    Cette application permet de simuler et d'optimiser le champ éleclectrique dans des empilements de couches minces optiques.
+    Utilisez le panneau de gauche pour configurer votre structure et lancer les calculs ou les optimisations.
+    """
+)
+
 initialize_state()
 apply_optimization_results()
 
